@@ -6,6 +6,8 @@ import com.sankuai.inf.leaf.service.SnowflakeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,7 +17,7 @@ import org.springframework.context.annotation.Configuration;
  * @date 2019/10/09
  * @since support springboot starter with dubbo and etc rpc
  */
-@Configuration
+@AutoConfiguration
 @EnableConfigurationProperties(LeafSpringBootProperties.class)
 public class LeafSpringBootStarterAutoConfigure {
     private Logger logger = LoggerFactory.getLogger(LeafSpringBootStarterAutoConfigure.class);
@@ -25,7 +27,7 @@ public class LeafSpringBootStarterAutoConfigure {
     @Bean
     public SegmentService initLeafSegmentStarter() throws Exception {
         if (properties != null && properties.getSegment() != null && properties.getSegment().isEnable()) {
-            SegmentService segmentService = new SegmentService(properties.getSegment().getUrl(), properties.getSegment().getUsername(), properties.getSegment().getPassword());
+            SegmentService segmentService = new SegmentService(properties.getSegment().getUrl(),properties.getSegment().getDriver(), properties.getSegment().getUsername(), properties.getSegment().getPassword());
             return segmentService;
         }
         logger.warn("init leaf segment ignore properties is {}", properties);

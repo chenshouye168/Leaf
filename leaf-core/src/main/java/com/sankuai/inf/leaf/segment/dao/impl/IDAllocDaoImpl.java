@@ -42,7 +42,7 @@ public class IDAllocDaoImpl implements IDAllocDao {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         try {
             sqlSession.update("com.sankuai.inf.leaf.segment.dao.IDAllocMapper.updateMaxId", tag);
-            LeafAlloc result = sqlSession.selectOne("com.sankuai.inf.leaf.segment.dao.IDAllocMapper.getLeafAlloc", tag);
+            LeafAlloc result = (LeafAlloc) sqlSession.selectOne("com.sankuai.inf.leaf.segment.dao.IDAllocMapper.getLeafAlloc", tag);
             sqlSession.commit();
             return result;
         } finally {
@@ -55,7 +55,7 @@ public class IDAllocDaoImpl implements IDAllocDao {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         try {
             sqlSession.update("com.sankuai.inf.leaf.segment.dao.IDAllocMapper.updateMaxIdByCustomStep", leafAlloc);
-            LeafAlloc result = sqlSession.selectOne("com.sankuai.inf.leaf.segment.dao.IDAllocMapper.getLeafAlloc", leafAlloc.getKey());
+            LeafAlloc result = (LeafAlloc) sqlSession.selectOne("com.sankuai.inf.leaf.segment.dao.IDAllocMapper.getLeafAlloc", leafAlloc.getKey());
             sqlSession.commit();
             return result;
         } finally {

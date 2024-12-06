@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class LeafController {
     private Logger logger = LoggerFactory.getLogger(LeafController.class);
 
-    @Autowired
+    @Autowired(required = false)
     private SegmentService segmentService;
-    @Autowired
+    @Autowired(required = false)
     private SnowflakeService snowflakeService;
 
     @RequestMapping(value = "/api/segment/get/{key}")

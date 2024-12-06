@@ -19,12 +19,13 @@ public class SegmentService {
     private IDGen idGen;
     private DruidDataSource dataSource;
 
-    public SegmentService(String url, String username, String pwd) throws SQLException, InitException {
+    public SegmentService(String url, String driverName,String username, String pwd) throws SQLException, InitException {
         Preconditions.checkNotNull(url,"database url can not be null");
         Preconditions.checkNotNull(username,"username can not be null");
         Preconditions.checkNotNull(pwd,"password can not be null");
         // Config dataSource
         dataSource = new DruidDataSource();
+        dataSource.setDriverClassName(driverName);
         dataSource.setUrl(url);
         dataSource.setUsername(username);
         dataSource.setPassword(pwd);

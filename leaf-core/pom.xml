@@ -12,10 +12,9 @@
     <version>1.0.1-RELEASE</version>
     <name>leaf-core</name>
     <properties>
-        <mysql-connector-java.version>5.1.38</mysql-connector-java.version>
-        <commons-io.version>2.4</commons-io.version>
-        <log4j.version>2.7</log4j.version>
-        <mybatis-spring.version>1.2.5</mybatis-spring.version>
+        <mysql-connector-java.version>8.0.33</mysql-connector-java.version>
+        <commons-io.version>2.18.0</commons-io.version>
+        <mybatis-spring.version>3.0.4</mybatis-spring.version>
     </properties>
     <dependencies>
         <dependency>
@@ -97,6 +96,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mybatis</groupId>

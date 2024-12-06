@@ -1,14 +1,12 @@
-package com.sankuai.inf.leaf.plugin;
+package com.sankuai.inf.leaf.server.config;
 
 import com.sankuai.inf.leaf.common.PropertyFactory;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
-/**
- * @author zhaodong.xzd (github.com/yaccc)
- * @date 2019/10/09
- */
+@Configuration
 @ConfigurationProperties(prefix = "leaf",ignoreUnknownFields = true)
 @PropertySource("classpath:leaf.properties")
 public class LeafSpringBootProperties {

@@ -49,11 +49,27 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!--mysql8-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql-connector-java.version}</version>
+        </dependency>
+
+        <!--gaussdb-->
+        <dependency>
+            <groupId>com.huaweicloud.gaussdb</groupId>
+            <artifactId>opengaussjdbc</artifactId>
+            <version>503.2.T35</version>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>
